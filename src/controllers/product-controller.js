@@ -17,7 +17,7 @@ export const addProduct = async (req, res) => {
 
 export const getProducts = async (req, res) => {
     try {
-        const products = await Products.find().populate("category"); 
+        const products = await Products.find().populate("category", "title"); 
         res.status(200).json({products});
     } catch (error) {
         res.status(500).json({ message: "failed to retrieve products", error: error.message });
