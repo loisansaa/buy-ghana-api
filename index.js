@@ -23,10 +23,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 
+
+
 app.use("/api/v1/categories", CategoryRouter);
 app.use("/api/v1/products", ProductsRouter);
 
-
+app.get("/", (req, res) => {
+  console.log("Root hit");
+  res.send("API is running");
+});
 
 const PORT = process.env.PORT || 4892;
 app.listen(PORT, () => {
